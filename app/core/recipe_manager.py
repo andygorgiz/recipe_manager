@@ -1,7 +1,7 @@
-from core.recipe import Recipe
-from core.storage import load_recipes, save_recipes
-from utils.logger import logger
-from utils.input_validation import safe_input
+from app.core.recipe import Recipe
+from app.core.storage import load_recipes, save_recipes
+from app.utils.logger import get_logger
+from app.utils.input_validation import safe_input
 
 logger = get_logger()
 
