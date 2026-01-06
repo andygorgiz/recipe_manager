@@ -23,27 +23,23 @@ class RecipeManager:
             print(recipe["instructions"])
     
     def add_recipe(self):
-        try: 
-            name = safe_input("Receptnamn: ")
-            ingredients = safe_input("Ingredienser (separera med kommatecken): ")
-            instructions = safe_input("Instruktioner: ")
+        name = safe_input("Receptnamn: ")
+        ingredients_input = safe_input("Ingredienser (komma-separerade): ")
+        instructions = safe_input("Instruktioner: ")
 
-            ingredient_list = [
-                ingredient.strip()
-                for ingredient in ingredients.split(",")
-                if ingredient.strip()
-        ]
+        ingredient_list = []
+        for ingredient in ingredients_input.split(","):
+            ingredient = ingredient.strip()
+            if ingredient:
+                ingredient_list.append(ingredient)
 
-            recipe = Recipe(name, ingredient_list, instructions)
-            self.recipes.append(recipe.to_dict())
-            save_recipes(self.recipes)
+        recipe = Recipe(name, ingredient_list, instructions)
+        self.recipes.append(recipe.to_dict())
+        save_recipes(self.recipes)
 
-            logger.info(f"Recept tillagt: {name}")
-            print("Recept tillagt!")
+        logger.info(f"Recept tillagt: {name}")
+        print("Recept tillagt!")
 
-        except ValueError  as error :
-            logger.warning(str(error))
-            print(f"Fel : {error}")
     
     def remove_recipes(self):
         self.show_recipes()
