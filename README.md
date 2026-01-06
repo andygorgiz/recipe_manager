@@ -16,6 +16,9 @@ Projektet är byggt med fokus på:
 
 Alla recept lagras lokalt i en JSON-fil.
 
+Programmet startas med:
+python -m app.main
+
 ---
 
 ## ⚙️ Installation
