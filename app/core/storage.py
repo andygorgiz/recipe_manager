@@ -1,5 +1,5 @@
 import json
-from config.settings import DATA_PATH
+from app.config.setting import DATA_PATH
 
 def load_recipes():
     try:
