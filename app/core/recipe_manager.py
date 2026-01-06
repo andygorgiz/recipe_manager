@@ -29,8 +29,10 @@ class RecipeManager:
             instructions = safe_input("Instruktioner: ")
 
             ingredient_list = [
-                i.strip() for i in ingredients.split(",")
-            ]
+                ingredient.strip()
+                for ingredient in ingredients.split(",")
+                if ingredient.strip()
+        ]
 
             recipe = Recipe(name, ingredient_list, instructions)
             self.recipes.append(recipe.to_dict())
@@ -39,9 +41,9 @@ class RecipeManager:
             logger.info(f"Recept tillagt: {name}")
             print("Recept tillagt!")
 
-        except ValueError  as e :
-            logger.warning(str(e))
-            print(e)
+        except ValueError  as error :
+            logger.warning(str(error))
+            print(f"Fel : {error}")
     
     def remove_recipes(self):
         self.show_recipes()
