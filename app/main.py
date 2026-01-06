@@ -1,4 +1,4 @@
-from core.recipe_manager import RecipeManager
+from app.core.recipe_manager import RecipeManager
 
 def main():
     manager = RecipeManager()
